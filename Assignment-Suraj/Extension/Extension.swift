@@ -14,8 +14,7 @@ extension UIView {
         })
     }
 }
-
-
 extension UIColor {
-    static let color = UIColor(red: 0 / 255, green: 0 / 255, blue: 0 / 255, alpha: 1)
+    static let loginBackGroundColor = UIColor(red: 91 / 255, green: 47 / 255, blue: 37 / 255, alpha: 1)
+    static let loginBackGroundColor1 = UIColor(red: 242 / 255, green: 226 / 255, blue: 226 / 255, alpha: 1)
 }

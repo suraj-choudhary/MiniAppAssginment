@@ -6,10 +6,14 @@
 //
 
 import UIKit
+protocol FlySignUpViewProtocol: AnyObject {
+    func loginHere(sender: UIButton)
+    func navigateToHomeController()
 
+}
 /// hold the login view
 final class FlySignUpView: UIView {
-    
+    var flySignUpViewDeleagte: FlySignUpViewProtocol?
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -99,7 +103,7 @@ final class FlySignUpView: UIView {
         passwordTextField.textColor = UIColor.loginBackGroundColor
         passwordTextField.layer.borderColor = UIColor.loginBackGroundColor.cgColor
         passwordTextField.font = .systemFont(ofSize: 20, weight: .medium)
-        passwordTextField.placeholder = "Enter your password"
+        passwordTextField.placeholder = "Create your password"
         passwordTextField.leftViewMode = .always
         passwordTextField.leftView = UIView(frame: CGRect(x: 10, y: 0, width: 10, height: 0))
         return passwordTextField
@@ -113,9 +117,19 @@ final class FlySignUpView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.loginBackGroundColor
         button.layer.cornerRadius = 30
-        button.setTitle("Login", for: .normal)
+        button.setTitle("Sign Up", for: .normal)
+        button.addTarget(self, action: #selector(signup(sender:)), for: .touchUpInside)
+
         return button
     }()
+    
+    
+    @objc func signup(sender: UIButton) {
+        flySignUpViewDeleagte?.navigateToHomeController()
+    }
+    
+    
+    
     
     /// this method used for login
     private let signUpButton = {
@@ -125,12 +139,12 @@ final class FlySignUpView: UIView {
         button.setTitleColor(UIColor.loginBackGroundColor, for: .normal)
         button.tintColor = UIColor.loginBackGroundColor
         button.addTarget(self, action: #selector(signupAction(sender:)), for: .touchUpInside)
-        button.setTitle("Or sign up here", for: .normal)
+        button.setTitle("Or Login Here", for: .normal)
         return button
     }()
     
     @objc func signupAction(sender: UIButton) {
-        debugPrint("sinup")
+        flySignUpViewDeleagte?.loginHere(sender: sender)
     }
     
     
@@ -145,7 +159,8 @@ final class FlySignUpView: UIView {
             stackview.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
             ///
             userPhoneTextField.heightAnchor.constraint(equalToConstant: 60),
-            
+            userPhoneTextField.leftAnchor.constraint(equalTo: stackview.leftAnchor, constant: 0),
+            userPhoneTextField.rightAnchor.constraint(equalTo: stackview.rightAnchor, constant: 0),
             userPasswordTextField.heightAnchor.constraint(equalToConstant: 60),
             ///
             loginButton.heightAnchor.constraint(equalToConstant: 60),

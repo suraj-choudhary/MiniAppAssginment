@@ -7,23 +7,27 @@
 
 import UIKit
 
+/// Home
 class FlyHomeVc: UIViewController {
 
+    var homeView = HomeView()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
+        view.addSubview(homeView)
+        setUpView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    /// Description
+    private func setUpView() {
+        NSLayoutConstraint.activate([
+            homeView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            homeView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            homeView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            homeView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
-    */
-
+    
+    
 }
