@@ -19,6 +19,13 @@
 		170442172B12DFF400637CC7 /* FlyLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170442162B12DFF400637CC7 /* FlyLoginView.swift */; };
 		1704421A2B12E45F00637CC7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170442192B12E45F00637CC7 /* Extension.swift */; };
 		1704421C2B12E5E100637CC7 /* FlyTabBarVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704421B2B12E5E100637CC7 /* FlyTabBarVc.swift */; };
+		1704421E2B13631100637CC7 /* FlyHomeVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704421D2B13631100637CC7 /* FlyHomeVc.swift */; };
+		170442202B13697000637CC7 /* FlySignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704421F2B13697000637CC7 /* FlySignUpView.swift */; };
+		176541152B1471E300BB1715 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176541142B1471E300BB1715 /* HomeView.swift */; };
+		176541172B1477CD00BB1715 /* FlyHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176541162B1477CD00BB1715 /* FlyHomeViewModel.swift */; };
+		17CEA5F02B1524C400E7EE43 /* FeedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CEA5EF2B1524C400E7EE43 /* FeedCollectionCell.swift */; };
+		17CEA5F22B152E2800E7EE43 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CEA5F12B152E2800E7EE43 /* PageVC.swift */; };
+		17CEA5F42B15301500E7EE43 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CEA5F32B15301500E7EE43 /* PageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +62,13 @@
 		170442162B12DFF400637CC7 /* FlyLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyLoginView.swift; sourceTree = "<group>"; };
 		170442192B12E45F00637CC7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		1704421B2B12E5E100637CC7 /* FlyTabBarVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyTabBarVc.swift; sourceTree = "<group>"; };
+		1704421D2B13631100637CC7 /* FlyHomeVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyHomeVc.swift; sourceTree = "<group>"; };
+		1704421F2B13697000637CC7 /* FlySignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlySignUpView.swift; sourceTree = "<group>"; };
+		176541142B1471E300BB1715 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		176541162B1477CD00BB1715 /* FlyHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyHomeViewModel.swift; sourceTree = "<group>"; };
+		17CEA5EF2B1524C400E7EE43 /* FeedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionCell.swift; sourceTree = "<group>"; };
+		17CEA5F12B152E2800E7EE43 /* PageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
+		17CEA5F32B15301500E7EE43 /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +163,9 @@
 		1704420F2B12DCD400637CC7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				17CEA5F12B152E2800E7EE43 /* PageVC.swift */,
 				170441E22B12DCA000637CC7 /* FlyLoginVC.swift */,
+				1704421D2B13631100637CC7 /* FlyHomeVc.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -165,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				170442142B12DF9E00637CC7 /* FlyLoginViewModel.swift */,
+				176541162B1477CD00BB1715 /* FlyHomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -173,6 +190,9 @@
 			isa = PBXGroup;
 			children = (
 				170442162B12DFF400637CC7 /* FlyLoginView.swift */,
+				1704421F2B13697000637CC7 /* FlySignUpView.swift */,
+				176541142B1471E300BB1715 /* HomeView.swift */,
+				17CEA5EF2B1524C400E7EE43 /* FeedCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +200,7 @@
 		170442132B12DCE300637CC7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				17CEA5F32B15301500E7EE43 /* PageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,13 +343,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				170442202B13697000637CC7 /* FlySignUpView.swift in Sources */,
 				170441E32B12DCA000637CC7 /* FlyLoginVC.swift in Sources */,
 				170441DF2B12DCA000637CC7 /* AppDelegate.swift in Sources */,
+				17CEA5F02B1524C400E7EE43 /* FeedCollectionCell.swift in Sources */,
+				176541152B1471E300BB1715 /* HomeView.swift in Sources */,
+				176541172B1477CD00BB1715 /* FlyHomeViewModel.swift in Sources */,
 				170442172B12DFF400637CC7 /* FlyLoginView.swift in Sources */,
+				17CEA5F22B152E2800E7EE43 /* PageVC.swift in Sources */,
+				17CEA5F42B15301500E7EE43 /* PageModel.swift in Sources */,
 				1704421C2B12E5E100637CC7 /* FlyTabBarVc.swift in Sources */,
 				1704421A2B12E45F00637CC7 /* Extension.swift in Sources */,
 				170442152B12DF9E00637CC7 /* FlyLoginViewModel.swift in Sources */,
 				170441E12B12DCA000637CC7 /* SceneDelegate.swift in Sources */,
+				1704421E2B13631100637CC7 /* FlyHomeVc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
