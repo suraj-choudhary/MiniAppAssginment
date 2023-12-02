@@ -30,3 +30,25 @@ struct UserDefaultValue {
         }
     }
 }
+
+extension UIViewController {
+    func showPicker() {
+        let alertController = UIAlertController(title: "Enter Text", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Your Placeholder Text"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] (_) in
+            if let text = alertController.textFields?.first?.text {
+                print("Entered Text: \(text)")
+            }
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(addAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+}

@@ -9,7 +9,7 @@ import Foundation
 
 /// Post model
 struct PostModel: Codable {
-    let imageUrls: String
+    let imageUrls: [String]
     let postCreationDate: String
     let userId: Int
     let postDescription: String

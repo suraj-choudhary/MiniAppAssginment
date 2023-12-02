@@ -10,8 +10,8 @@ import UIKit
 
 class FlyHomeViewModel: NSObject {
     
-    let model = PostModel(imageUrls: "afwsjbfj", postCreationDate: "dfsjd", userId: 3, postDescription: "afjsbfjbsjdb")
-    let post2 = PostModel(imageUrls: "url3", postCreationDate: "timestamp2", userId: 4, postDescription: "Description2")
+    let model = PostModel(imageUrls: ["afwsjbfj", "afwsjbfj"], postCreationDate: "dfsjd", userId: 3, postDescription: "afjsbfjbsjdb")
+    let post2 = PostModel(imageUrls: ["url3", "afwsjbfj"], postCreationDate: "timestamp2", userId: 4, postDescription: "Description2")
 
     func createPost(token: String) {
         FireBaseDataBaseManager.shared.createReference(token: token, posts: [model, post2])

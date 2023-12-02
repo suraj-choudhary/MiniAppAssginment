@@ -23,7 +23,7 @@ class FlyHomeVc: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
-
+        
         setUpView()
     }
     /// Description
@@ -43,15 +43,16 @@ class FlyHomeVc: UIViewController, UIImagePickerControllerDelegate & UINavigatio
     ///   - picker: picker description
     ///   - info: info description
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let pickedImage = info[.originalImage] as? UIImage {
-            
-            
+        if let imageURL = info[.imageURL]  {
             
             let token =  UserDefaultValue.saveToken!
             viewModel.createPost(token: token)
-
+            
         }
-        picker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: {
+            self.showPicker()
+            
+        })
     }
     
     
