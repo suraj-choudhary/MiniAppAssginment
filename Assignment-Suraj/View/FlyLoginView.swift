@@ -78,7 +78,7 @@ final class FlyLoginView: UIView {
     
     
     /// this anoumus method help to create user intput field for enter the phone number
-    private  var userPhoneTextField = {
+     public  var userPhoneTextField = {
         let phoneTextField =  UITextField()
         phoneTextField.backgroundColor = .systemGroupedBackground
         phoneTextField.translatesAutoresizingMaskIntoConstraints = false

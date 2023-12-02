@@ -6,3 +6,7 @@
 //
 
 import Foundation
+enum MessageHandler {
+    case sucess(String)
+    case error(String?)
+}

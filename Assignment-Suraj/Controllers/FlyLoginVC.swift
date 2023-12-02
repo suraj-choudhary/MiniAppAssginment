@@ -7,11 +7,16 @@
 
 import UIKit
 /// Help to hold the login for fly app
-class FlyLoginVC: UIViewController, FlyLoginViewProtocol, FlySignUpViewProtocol {
-   
-    
+class FlyLoginVC: UIViewController, FlyLoginViewProtocol, FlySignUpViewProtocol, FlyLoginViewModelProtocol {
+    func navigateToHomeController() {
+        
+    }
     var flyLoginView = FlyLoginView()
     var signupView =  FlySignUpView()
+    
+    lazy var viewModel = {
+        FlyLoginViewModel()
+    }()
     
     /// life cycle of viewdidLoad
     override func viewDidLoad() {
@@ -25,8 +30,8 @@ class FlyLoginVC: UIViewController, FlyLoginViewProtocol, FlySignUpViewProtocol 
         containerview.addSubview(signUpSegmentControl)
         signupView.isHidden = true
         addConstrainst()
+        viewModel.flyLoginViewModelProtocol = self
     }
-    
     private let titleLable = {
         let label = UILabel()
         label.text = "Hey!"
@@ -54,9 +59,7 @@ class FlyLoginVC: UIViewController, FlyLoginViewProtocol, FlySignUpViewProtocol 
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
     }
-    
     /// constrains for view
     func addConstrainst() {
         NSLayoutConstraint.activate([
@@ -86,8 +89,6 @@ class FlyLoginVC: UIViewController, FlyLoginViewProtocol, FlySignUpViewProtocol 
             
         ])
     }
-
-    
     /// Description
     private let signUpSegmentControl: UISegmentedControl = {
         let items = ["Login", "Sign up"]
@@ -130,10 +131,7 @@ class FlyLoginVC: UIViewController, FlyLoginViewProtocol, FlySignUpViewProtocol 
         flyLoginView.isHidden = true
         signupView.isHidden = false
         signUpSegmentControl.selectedSegmentIndex = 1
-
-
     }
-    
     /// Description
     /// - Parameter sender: sender description
     func loginHere(sender: UIButton) {
@@ -141,12 +139,25 @@ class FlyLoginVC: UIViewController, FlyLoginViewProtocol, FlySignUpViewProtocol 
         flyLoginView.isHidden = false
         signUpSegmentControl.selectedSegmentIndex = 0
     }
-    
-    
     /// Description
-    func navigateToHomeController() {
-        let home = FlyTabBarVc()
-        navigationController?.pushViewController(home, animated: true)
+    func navigateToHomeController(sender: UIButton) {
+        
+        guard let text = signupView.userPhoneTextField.text else {
+            return
+        }
+        viewModel.loginWithPhone(phone: text)
+    }
+    /// Description
+    /// - Parameter result: result description
+    func getLoginResut(result: MessageHandler) {
+        switch result {
+        case .sucess(let token):
+            UserDefaultValue.saveToken = token
+            let home = FlyTabBarVc()
+            navigationController?.pushViewController(home, animated: true)
+        case .error(let error):
+            debugPrint(error)
+        }
     }
     
 }

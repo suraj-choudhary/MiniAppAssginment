@@ -8,7 +8,7 @@
 import UIKit
 protocol FlySignUpViewProtocol: AnyObject {
     func loginHere(sender: UIButton)
-    func navigateToHomeController()
+    func navigateToHomeController(sender: UIButton)
 
 }
 /// hold the login view
@@ -77,7 +77,7 @@ final class FlySignUpView: UIView {
     
     
     /// this anoumus method help to create user intput field for enter the phone number
-    private  var userPhoneTextField = {
+    public  var userPhoneTextField = {
         let phoneTextField =  UITextField()
         phoneTextField.backgroundColor = .systemGroupedBackground
         phoneTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -125,7 +125,7 @@ final class FlySignUpView: UIView {
     
     
     @objc func signup(sender: UIButton) {
-        flySignUpViewDeleagte?.navigateToHomeController()
+        flySignUpViewDeleagte?.navigateToHomeController(sender: sender)
     }
     
     

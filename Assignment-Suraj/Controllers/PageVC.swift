@@ -53,7 +53,6 @@ class PageVC: UIViewController {
         
         return label
     }()
-    
     private let postCreatedDateLbl: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

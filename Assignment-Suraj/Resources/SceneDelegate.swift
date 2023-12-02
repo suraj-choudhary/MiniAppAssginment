@@ -15,11 +15,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windoScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windoScene)
-        let flyLoginVc = FlyLoginVC()
-        let loginNav = UINavigationController(rootViewController: flyLoginVc)
+
+         var viewController = UIViewController()
+        if ((UserDefaultValue.saveToken?.isEmpty) != nil) {
+            let home = FlyTabBarVc()
+            home.navigationController?.pushViewController(home, animated: true)
+            viewController = FlyTabBarVc()
+        } else {
+            viewController = FlyLoginVC()
+        }
+        let loginNav = UINavigationController(rootViewController: viewController)
         window.rootViewController = loginNav
         self.window = window
         window.makeKeyAndVisible()
+        
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -10,6 +10,12 @@ import UIKit
 
 class FlyHomeViewModel: NSObject {
     
+    let model = PostModel(imageUrls: "suraj", postCreationDate: "kumar", userId: 2, postDescription: "afjsbfjbsjdb")
+    func createPost(token: String) {
+        FireBaseDataBaseManager.shared.createReference(token: token, model: model)
+    }
+    
+    
 }
 extension FlyHomeViewModel: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
